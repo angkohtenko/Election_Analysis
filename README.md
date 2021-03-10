@@ -15,11 +15,11 @@ I wrote a python script which retrieves data from [election_results.csv](https:/
 ![](https://github.com/angkohtenko/Election_Analysis/blob/main/Analysis/election_analysis_screenshot.png)
 
 The analysis of the election shows that:
-- There were 369,711 votes cast in this congressional election.
+- There were 369,711 cast votes in this congressional election.
 - Votes were counted in three counties:
-  * Jefferson. There are 38,885 votes or 10,5% of the total votes in Jefferson.
-  * Denver. There are 306,055 votes or 82,8% of the total votes in Denver.
-  * Arapahoe. There are 24,801 votes or 6,7% of the total votes in Arapahoe.
+  * Jefferson. There are 38,885 votes or 10,5% of the total votes.
+  * Denver. There are 306,055 votes or 82,8% of the total votes.
+  * Arapahoe. There are 24,801 votes or 6,7% of the total votes.
 - The majority of votes were in Denver - 82,8%.
 - The candidates were:
   * Charles Casper Stockham
@@ -33,3 +33,35 @@ The analysis of the election shows that:
 
 
 ## Election Audit Summary
+The current script can be used to extend the analysis of election results.
+For example, we can count how many votes the candidate has in the every county by creating a dictionary with multiple keys - county and candidate name - and
+adding the next code in the for loop:
+```
+# Create a dictionary to count votes for a candidate in the county
+candidate_in_county = {}
+...
+    # Print each row in the CSV file.
+    for row in file_reader:
+    ...
+        # If candidate is not listed in the county
+        if (county,candidate_name) not in candidate_in_county.keys():
+            # Add the candidate_name to the candidate list in the county
+            candidate_in_county[(county,candidate_name)] = 0
+
+        # Add a vote to that candidate's vote count in a county
+        candidate_in_county[(county,candidate_name)] += 1
+
+# Print the county results for each candidate in the every county
+print(candidate_in_county)
+```
+Actually, the script can be used for any election where votes for a candidate are recorded row by row. The only change that should be done in the code is choosing the appropriate column based on the source file to retrieve candidate name and county.
+```
+# Retrieve the candidate name from each row
+candidate_name = row[2]        # change the column number in the brackets here to get candidate name
+
+# Extract the county name from each row.
+county = row[1]                # change the column number in the brackets here to get county name
+````
+It's important to remember that index counting begins from 0, so to get data from 3rd column we need to write [2] as an index. 
+
+```
