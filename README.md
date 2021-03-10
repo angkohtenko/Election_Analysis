@@ -2,11 +2,12 @@
 
 ## Overview of Election Audit
 I was given a dataset of a recent local congressional election in Colorado to complete the audit of results:
-- calculate the total number of votes
-- get a complete list of candidates and counties
-- calculate the total number of votes for each candidate and county
-- calculate the percentage of votes each candidate and county
-- determine the winner of the election based on popular vote and the county which had a largest number of votes
+- calculate the total number of votes;
+- get a complete list of candidates and counties;
+- calculate the total number of votes for each candidate and county;
+- calculate the percentage of votes for each candidate and county;
+- determine the winner of the election based on popular vote and the county which had a largest number of votes.
+
 I've used Python 3.8.0 and Visual Studio Code to conduct the analysis.
 
 ## Election-Audit Results
@@ -20,7 +21,7 @@ The analysis of the election shows that:
   * Jefferson. There are 38,885 votes or 10,5% of the total votes.
   * Denver. There are 306,055 votes or 82,8% of the total votes.
   * Arapahoe. There are 24,801 votes or 6,7% of the total votes.
-- The majority of votes were in Denver - 82,8%.
+- The majority of votes was in Denver - 82,8%.
 - The candidates were:
   * Charles Casper Stockham
   * Diana DeGette
