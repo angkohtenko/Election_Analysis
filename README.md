@@ -62,6 +62,4 @@ candidate_name = row[2]        # change the column number in the brackets here t
 # Extract the county name from each row.
 county = row[1]                # change the column number in the brackets here to get county name
 ````
-It's important to remember that index counting begins from 0, so to get data from 3rd column we need to write [2] as an index. 
-
-```
+It's important to remember that index counting begins from 0, so to get data from 3rd column we need to write [2] as an index.
