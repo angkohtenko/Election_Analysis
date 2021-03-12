@@ -27,6 +27,8 @@ winning_percentage = 0
 largest_county = ""
 largest_county_turnout = 0
 
+candidate_in_county = {} #---------------------------------------------
+
 # Open the election results and read the file.
 with open(file_to_load) as election_data:
     file_reader = csv.reader(election_data)
@@ -64,6 +66,17 @@ with open(file_to_load) as election_data:
 
         # Add a vote to that county's vote count
         county_votes[county] +=1
+#----------------------------------------------------------------------------------
+        # If candidate is not listed in the county
+        if (county,candidate_name) not in candidate_in_county.keys():
+            # Add the candidate_name to the candidate list in the county
+            candidate_in_county[(county,candidate_name)] = 0
+
+        # Add a vote to that candidate's vote count in a county
+        candidate_in_county[(county,candidate_name)] += 1
+#----------------------------------------------------------------------------------
+
+print(candidate_in_county) #----------------------------------
 
 # Save the results to our text file.
 with open(file_to_save, "w") as txt_file:
